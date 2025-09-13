@@ -16,8 +16,8 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #0d4635 0%, #1a5c47 30%, #0f3d2a 100%);
-            color: #ffd700;
+            background: linear-gradient(135deg, #1a2744 0%, #2d4a6e 30%, #1e3454 100%);
+            color: #f8f9fa;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -48,10 +48,10 @@
             text-align: center;
             margin-bottom: 50px;
             padding: 40px 0;
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(198, 170, 108, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
         }
 
@@ -59,10 +59,10 @@
             font-family: 'Amiri', serif;
             font-size: 3.5em;
             font-weight: 700;
-            color: #ffd700;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            color: #c6aa6c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            background: linear-gradient(45deg, #c6aa6c, #d4b876);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -70,24 +70,24 @@
 
         .subtitle {
             font-size: 1.8em;
-            color: #e6c200;
+            color: #a6926b;
             margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .description {
             font-size: 1.3em;
             line-height: 1.8;
-            color: #f0f0f0;
+            color: #e9ecef;
             margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .btn {
             display: inline-block;
             padding: 18px 40px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #0d4635;
+            background: linear-gradient(135deg, #c6aa6c, #d4b876);
+            color: #1a2744;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.2em;
@@ -95,7 +95,7 @@
             border: none;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(198, 170, 108, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
@@ -109,7 +109,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.5s;
         }
 
@@ -118,8 +118,9 @@
         }
 
         .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(198, 170, 108, 0.4);
+            background: linear-gradient(135deg, #d4b876, #e2c584);
         }
 
         .features {
@@ -130,31 +131,32 @@
         }
 
         .feature {
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             padding: 40px 30px;
             border-radius: 20px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
+            border: 2px solid rgba(198, 170, 108, 0.2);
             text-align: center;
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
         }
 
         .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
-            border-color: rgba(255, 215, 0, 0.6);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(198, 170, 108, 0.15);
+            border-color: rgba(198, 170, 108, 0.4);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .feature h3 {
             font-size: 1.8em;
             margin-bottom: 20px;
-            color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #c6aa6c;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .feature p {
             font-size: 1.1em;
-            color: #e6e6e6;
+            color: #e9ecef;
             line-height: 1.6;
         }
 
@@ -168,20 +170,20 @@
         .social-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            background: linear-gradient(135deg, #c6aa6c, #d4b876);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0d4635;
+            color: #1a2744;
             font-size: 1.8em;
             transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 6px 15px rgba(198, 170, 108, 0.3);
         }
 
         .social-icon:hover {
-            transform: translateY(-8px) scale(1.2);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(198, 170, 108, 0.4);
         }
 
         .plans {
@@ -192,8 +194,8 @@
         }
 
         .plan {
-            background: rgba(255, 215, 0, 0.1);
-            border: 3px solid rgba(255, 215, 0, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid rgba(198, 170, 108, 0.3);
             border-radius: 25px;
             padding: 50px 40px;
             text-align: center;
@@ -210,7 +212,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle, rgba(198, 170, 108, 0.1) 0%, transparent 50%);
             animation: rotate 20s linear infinite;
             z-index: -1;
         }
@@ -221,24 +223,25 @@
         }
 
         .plan:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.3);
-            border-color: rgba(255, 215, 0, 0.8);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(198, 170, 108, 0.2);
+            border-color: rgba(198, 170, 108, 0.6);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .plan h3 {
             font-size: 2.2em;
             margin-bottom: 20px;
-            color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            color: #c6aa6c;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .price {
             font-size: 2em;
             font-weight: 700;
-            color: #ffed4e;
+            color: #d4b876;
             margin: 30px 0;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .plan ul {
@@ -250,55 +253,57 @@
         .plan li {
             padding: 12px 0;
             font-size: 1.1em;
-            color: #e6e6e6;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            color: #e9ecef;
+            border-bottom: 1px solid rgba(198, 170, 108, 0.2);
             position: relative;
         }
 
         .plan li::before {
             content: '✓';
-            color: #ffd700;
+            color: #c6aa6c;
             font-weight: bold;
             margin-left: 10px;
         }
-        .plan[style*="border-color: #ffd700"]::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
-    animation: shine 2s infinite;
-}
 
-/* تأثير اللمعان */
-@keyframes shine {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
+        .plan[style*="border-color: #c6aa6c"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
 
         .gallery {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             margin: 50px 0;
-            }
+        }
 
         .gallery-item {
             aspect-ratio: 1;
-            background: linear-gradient(135deg, #1a5c47, #0d4635);
+            background: linear-gradient(135deg, #2d4a6e, #1a2744);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffd700;
+            color: #c6aa6c;
             font-size: 1.2em;
             text-align: center;
             transition: all 0.4s ease;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(198, 170, 108, 0.2);
         }
+
         .gallery-item img {
             width: 95%;
             height: 100%;
@@ -307,8 +312,9 @@
         }
 
         .gallery-item:hover {
-            transform: scale(1.05) rotateY(10deg);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+            transform: scale(1.03) rotateY(5deg);
+            box-shadow: 0 15px 30px rgba(198, 170, 108, 0.15);
+            border-color: rgba(198, 170, 108, 0.4);
         }
 
         .portfolio-links {
@@ -321,12 +327,12 @@
         }
 
         .portfolio-link {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(198, 170, 108, 0.3);
             padding: 20px;
             border-radius: 15px;
             text-align: center;
-            color: #ffd700;
+            color: #c6aa6c;
             text-decoration: none;
             transition: all 0.3s ease;
             backdrop-filter: blur(8px);
@@ -334,14 +340,15 @@
         }
 
         .portfolio-link:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(198, 170, 108, 0.15);
+            border-color: rgba(198, 170, 108, 0.5);
         }
 
         .guarantee {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(198, 170, 108, 0.4);
             border-radius: 20px;
             padding: 40px;
             text-align: center;
@@ -351,7 +358,7 @@
 
         .guarantee h3 {
             font-size: 2em;
-            color: #ffd700;
+            color: #c6aa6c;
             margin-bottom: 20px;
         }
 
@@ -366,13 +373,13 @@
             display: inline-block;
             margin: 20px 0;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
         .whatsapp-btn:hover {
             background: #20b358;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
         }
 
         .floating-elements {
@@ -387,7 +394,7 @@
 
         .floating-element {
             position: absolute;
-            color: rgba(255, 215, 0, 0.1);
+            color: rgba(198, 170, 108, 0.1);
             font-size: 2em;
             animation: float 15s infinite ease-in-out;
         }
@@ -402,7 +409,7 @@
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(to right, #ffd700, #ffed4e);
+            background: linear-gradient(to right, #c6aa6c, #d4b876);
             z-index: 1000;
             transition: width 0.3s ease;
         }
@@ -415,29 +422,31 @@
             .gallery { grid-template-columns: repeat(2, 1fr); }
             .container { padding: 0 15px; }
         }
+
         .limited-offer {
-    width: 100%;
-    background: rgba(255, 0, 0, 0.9); /* خلفية حمراء مع شفافية */
-    color: #ffffff; /* نص أبيض لتباين أفضل */
-    font-weight: bold;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف */
-    animation: pulse 2s infinite; /* تأثير النبض */
-}
+            width: 100%;
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            color: #ffffff;
+            font-weight: bold;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            border-bottom: 2px solid rgba(198, 170, 108, 0.3);
+        }
 
+        @keyframes pulse {
+            0% { background: linear-gradient(135deg, #8b4513, #a0522d); }
+            50% { background: linear-gradient(135deg, #a0522d, #b8602a); }
+            100% { background: linear-gradient(135deg, #8b4513, #a0522d); }
+        }
 
-/* إضافة تأثير النبض إذا لم يكن موجودًا بالفعل */
-@keyframes pulse {
-    0% {     background: rgba(255, 0, 0, 0.9); /* خلفية حمراء مع شفافية */
-    }
-    50% {     background: rgba(255, 0, 0, 0.63); /* خلفية حمراء مع شفافية */
-    }
-    100% {    background: rgba(255, 0, 0, 0.9); /* خلفية حمراء مع شفافية */
-    }
-}
-
-
+        .highlight-text {
+            background: rgba(198, 170, 108, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid rgba(198, 170, 108, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -504,7 +513,7 @@
                     <div class="social-icon">📘</div>
                     <div class="social-icon">📷</div>
                 </div>
-                <p style="color: #e6e6e6; margin-top: 30px;">
+                <p style="color: #e9ecef; margin-top: 30px;">
                     Facebook • Instagram <br>
                 </p>
                 <button style="margin-top: 30px;" class="btn" onclick="nextStep()">شوف الضمان 🔒</button>
@@ -522,10 +531,10 @@
                     <strong>ضمان 100% على جودة العمل والنتائج</strong>
                 </p>
                 <div style="margin: 30px 0;">
-                    <div style="background: rgba(255, 215, 0, 0.2); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                    <div style="background: rgba(198, 170, 108, 0.1); padding: 20px; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(198, 170, 108, 0.2);">
                         ✓ إنجاز الموقع في أقل من 5 أيام
                     </div>
-                    <div style="background: rgba(255, 215, 0, 0.2); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                    <div style="background: rgba(198, 170, 108, 0.1); padding: 20px; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(198, 170, 108, 0.2);">
                         ✓ دعم فني مجاني  
                     </div>
                 </div>
@@ -556,7 +565,7 @@
                     <button class="btn" onclick="selectPlan('الخطة الأساسية - 499DH')">اختر هذه الخطة</button>
                 </div>
 
-                <div class="plan" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.15);">
+                <div class="plan" style="border-color: #c6aa6c; background: rgba(198, 170, 108, 0.08);">
                     <h3>الخطة المتكاملة ⭐</h3>
                     <div style="direction:ltr;" class="price">699 DH <span style=" text-decoration: line-through;font-size: 24px;">1800 DH</span></div>
                     <ul>
@@ -590,25 +599,16 @@
                             <img src="./Sans titre-2sdfdsf.jpg" alt="">
                         </div>
                     </div>
-                    <p style="margin-top:20px; text-align:center; color:gold; font-weight:bold;">
+                    <p style="margin-top:20px; text-align:center; color:#c6aa6c; font-weight:bold;">
                         يمكنك الحصول على موقع أنيق ومصمم على ذوقك الخاص ✨
                     </p>
                 </div>
             </div>
 
-            <!-- <div class="header">
-                <h3 class="subtitle">شوف بعض النماذج قبل ما تختار ✨</h3>
-                <div class="portfolio-links">
-                    <a href="#" class="portfolio-link">تصفح النموذج 1</a>
-                    <a href="#" class="portfolio-link">تصفح النموذج 2</a>
-                    <a href="#" class="portfolio-link">تصفح النموذج 3</a>
-                    <a href="#" class="portfolio-link">تصفح النموذج 4</a>
-                </div>
-            </div> -->
-            <p class="highlight-text" style="text-align: center; color: #ffffff; font-weight: bold; font-size: 18px; margin-top: 10px;">
+            <p class="highlight-text" style="text-align: center; color: #f8f9fa; font-weight: bold; font-size: 18px; margin-top: 30px;">
                 لماذا نحن الأفضل؟
                 لأننا نصمّم مواقع فنية فاخرة ✨ تعكس ذوقك الإبداعي بلمسة فريدة. نحن نفهم السوق و الفن ونترجمه لتجربة رقمية راقية تعكس شخصيتك. ومع دعم مستمر، تظل مواقعنا في صدارة الأفضل بالعالم العربي بجودة وابتكار لا مثيل لهما.      
-                  </p>
+            </p>
         </div>
     </div>
 
