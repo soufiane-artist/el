@@ -3,686 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمات الفنانين التشكيليين | موقع احترافي + تسويق</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>موقع الفنانين التشكيليين</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
 
         body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #0d4635 0%, #1a5c47 30%, #0f3d2a 100%);
-            color: #ffd700;
-            min-height: 100vh;
-            overflow-x: hidden;
+            font-family: 'Tajawal', sans-serif;
+        }
+        .plan-card{
+            border: 1px solid #666666;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.37);
         }
 
-        .step {
-            display: none;
-            min-height: 100vh;
-            padding: 40px 0;
-            animation: fadeIn 0.8s ease-in-out;
+        .discount-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #EF4444;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        .step.active {
-            display: block;
+        .old-price:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #EF4444;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding: 40px 0;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 20px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .main-title {
-            font-family: 'Amiri', serif;
-            font-size: 3.5em;
-            font-weight: 700;
-            color: #ffd700;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-           
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: 1.8em;
-            color: #e6c200;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .description {
-            font-size: 1.3em;
-            line-height: 1.8;
-            color: #f0f0f0;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 18px 40px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #0d4635;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2em;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .feature {
-            background: rgba(255, 215, 0, 0.1);
-            padding: 40px 30px;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            text-align: center;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
-            border-color: rgba(255, 215, 0, 0.6);
-        }
-
-        .feature h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .feature p {
-            font-size: 1.1em;
-            color: #e6e6e6;
-            line-height: 1.6;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .social-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0d4635;
-            font-size: 1.8em;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .social-icon:hover {
-            transform: translateY(-8px) scale(1.2);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
-        }
-
-        .plans {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin: 50px 0;
-        }
-
-        .plan {
-            background: rgba(255, 215, 0, 0.1);
-            border: 3px solid rgba(255, 215, 0, 0.4);
-            border-radius: 25px;
-            padding: 50px 40px;
-            text-align: center;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(15px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .plan::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
-            animation: rotate 20s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .plan:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.3);
-            border-color: rgba(255, 215, 0, 0.8);
-        }
-
-        .plan h3 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        .price {
-            font-size: 2em;
-            font-weight: 700;
-            color: #ffed4e;
-            margin: 30px 0;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        .plan ul {
-            list-style: none;
-            text-align: right;
-            margin: 30px 0;
-        }
-
-        .plan li {
-            padding: 12px 0;
-            font-size: 1.1em;
-            color: #e6e6e6;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            position: relative;
-        }
-
-        .plan li::before {
-            content: '✓';
-            color: #ffd700;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-        .plan[style*="border-color: #ffd700"]::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
-    animation: shine 2s infinite;
-}
-
-/* تأثير اللمعان */
-@keyframes shine {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 50px 0;
-            }
-
-        .gallery-item {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #1a5c47, #0d4635);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffd700;
-            font-size: 1.2em;
-            text-align: center;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-        .gallery-item img {
-            width: 95%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05) rotateY(10deg);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
-        }
-
-        .portfolio-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .portfolio-link {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.4);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            color: #ffd700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
-            width: 95%;
-        }
-
-        .portfolio-link:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
-        }
-
-        .guarantee {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.5);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            margin: 50px 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .guarantee h3 {
-            font-size: 2em;
-            color: #ffd700;
-            margin-bottom: 20px;
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            padding: 20px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.3em;
-            font-weight: bold;
-            display: inline-block;
-            margin: 20px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        .whatsapp-btn:hover {
-            background: #20b358;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
-        }
-
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-element {
-            position: absolute;
-            color: rgba(255, 215, 0, 0.1);
-            font-size: 2em;
-            animation: float 15s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-50px) rotate(180deg); }
-        }
-
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(to right, #ffd700, #ffed4e);
+        #urgency-bar {
             z-index: 1000;
-            transition: width 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            .main-title { font-size: 2.5em; }
-            .subtitle { font-size: 1.4em; }
-            .description { font-size: 1.1em; }
-            .plans { grid-template-columns: 1fr; }
-            .gallery { grid-template-columns: repeat(2, 1fr); }
-            .container { padding: 0 15px; }
+        #countdown {
+            display: inline-block;
+            min-width: 100px;
+            text-align: center;
+            color: #1E40AF;
+        }
+        section {
+            min-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
         .limited-offer {
-    width: 100%;
-    background: rgba(255, 0, 0, 0.9); /* خلفية حمراء مع شفافية */
-    color: #ffffff; /* نص أبيض لتباين أفضل */
-    font-weight: bold;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف */
-    animation: pulse 2s infinite; /* تأثير النبض */
-}
-
+            width: 100%;
+            background: rgba(255, 208, 0, 0.9); /* خلفية حمراء مع شفافية */
+            color: #000000; /* نص أبيض لتباين أفضل */
+            font-size: 1em;
+            font-weight: bold;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف */
+            animation: pulse 2s infinite; /* تأثير النبض */
+        }
 
 /* إضافة تأثير النبض إذا لم يكن موجودًا بالفعل */
 @keyframes pulse {
-    0% {     background: rgba(255, 0, 0, 0.9); /* خلفية حمراء مع شفافية */
-    }
-    50% {     background: rgba(255, 0, 0, 0.63); /* خلفية حمراء مع شفافية */
-    }
-    100% {    background: rgba(255, 0, 0, 0.9); /* خلفية حمراء مع شفافية */
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
-
-
     </style>
 </head>
-<body>
-    <div class="progress-bar" id="progressBar"></div>
-    <div class="limited-offer">
-        ⏰ العرض محدود وسينتهي قريبًا! احجز الآن قبل فوات الأوان! ⏰
-    </div>
-    <div class="floating-elements">
-        <div class="floating-element" style="top: 10%; left: 10%;">🎨</div>
-        <div class="floating-element" style="top: 20%; right: 15%; animation-delay: -5s;">✨</div>
-        <div class="floating-element" style="top: 60%; left: 5%; animation-delay: -10s;">🖼️</div>
-        <div class="floating-element" style="top: 70%; right: 10%; animation-delay: -7s;">💎</div>
-        <div class="floating-element" style="top: 40%; right: 20%; animation-delay: -3s;">🌟</div>
-    </div>
+<body >
+    <!-- شريط الاستعجال الثابت -->
+    
 
-    <!-- Step 1: ترحيب وتعريف بالخدمة -->
-    <div class="step active" id="step1">
-        <div class="container">
-            <div class="header">
-                <h1 class="main-title">بغيتي تبيع لوحاتك الفنية مباشرة بلا وسطاء؟ </h1>
-                <p class="description">
-                    غادي نقدمو ليك موقع إلكتروني راقي فيه لوحاتك بالصور والأثمنة + زر شراء مباشر 🌍<br>
-                </p>
-                <button class="btn" onclick="nextStep()">نكمل</button>
-            </div>
+    <!-- القسم الرئيسي -->
+    <!-- <header style="margin-top: 65px;" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-12 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 fade-in">موقع الفنانين التشكيليين 🖼️</h1>
+            <p class="text-lg md:text-xl text-gray-100 mb-8">حول فنك إلى تجربة رقمية مذهلة مع موقع احترافي يعرض لوحاتك ويجذب الزبائن! 🚀</p>
         </div>
-    </div>
-
-    <!-- Step 2: المزايا -->
-    <div class="step" id="step2">
-        <div class="container">
-            <div class="header">
-                <h2 class="main-title">المزايا اللي غتحصل عليها</h2>
-            </div>
-            <div class="features">
-                <div class="feature">
-                    <h3>🌐 دومين مجاني</h3>
-                    <p>دومين .com مجاني لعام كامل باسم مشروعك الفني</p>
-                </div>
-                <div class="feature">
-                    <h3>🚀 SEO متقدم</h3>
-                    <p>باش تجيب الزوار من المغرب والخارج وتظهر فأول النتائج</p>
-                </div>
-                <div class="feature">
-                    <h3>🎨 تصميم راقي</h3>
-                    <p>تصميم أنيق يعكس الهوية الفنية الخاصة بك</p>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <button class="btn" onclick="nextStep()">نكمل للتسويق 📈</button>
-            </div>
+    </header> -->
+        
+    <!-- المرحلة الأولى -->
+    <section class="step active py-12 px-6 bg-white" id="step1">
+        <div class="container mx-auto text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4 fade-in">واش عندك مشكل فبيع لوحاتك الفنية؟</h1>
+            <button class="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg font-bold transition duration-300" onclick="showStep(2)">
+                <i class="fas fa-check-circle mr-2"></i> نعم، عندي هاد المشكل
+            </button>
         </div>
-    </div>
+    </section>
 
-    <!-- Step 3: الخطة التسويقية -->
-    <div class="step" id="step3">
-        <div class="container">
-            <div class="header">
-                <h2 class="main-title">الخطة التسويقية المتكاملة</h2>
-                <p class="description">
-                    وزيد عليها خطة تسويقية مجرّبة باش تبان كثر فالسوشيال ميديا وتجيب زبناء جداد 📲
-                </p>
-                <div class="social-icons">
-                    <div class="social-icon">📘</div>
-                    <div class="social-icon">📷</div>
-                </div>
-                <p style="color: #e6e6e6; margin-top: 30px;">
-                    Facebook • Instagram <br>
-                </p>
-                <button style="margin-top: 30px;" class="btn" onclick="nextStep()">شوف الضمان 🔒</button>
-            </div>
+    <!-- المرحلة الثانية -->
+    <section class="step hidden py-12 px-6 bg-gray-50" id="step2">
+        <div class="container mx-auto text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4 fade-in">واش بغيتي موقع أنيق يعرض لوحاتك بطريقة احترافية؟</h1>
+            <button class="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg font-bold transition duration-300" onclick="showStep(3)">
+                <i class="fas fa-check-circle mr-2"></i> إييه، هذا اللي باغي
+            </button>
         </div>
-    </div>
+    </section>
 
-    <!-- Step 4: الضمان -->
-    <div class="step" id="step4">
-        <div class="container">
-            <div class="guarantee">
-                <h3>🔒 ضمان كامل للخدمة</h3>
-                <p class="description" style="font-size: 1.4em;">
-                    إلى ما عجبكش الموقع، كترجع فلوسك<br>
-                    <strong>ضمان 100% على جودة العمل والنتائج</strong>
-                </p>
-                <div style="margin: 30px 0;">
-                    <div style="background: rgba(255, 215, 0, 0.2); padding: 20px; border-radius: 15px; margin: 20px 0;">
-                        ✓ إنجاز الموقع في أقل من 5 أيام
+    <!-- المرحلة الثالثة -->
+    <section  class="step hidden px-6 bg-white mt-8" id="step3">
+        
+        <div class="container mx-auto mt-8">
+            <h1 class="text-2xl text-center md:text-3xl font-bold text-blue-800 mb-4 text-center fade-in">اختار خطتك اليوم قبل ما يسالي العرض 🎁</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- الخطة الاقتصادية -->
+                <div class="plan-card bg-white rounded-lg shadow-md p-6 relative transition duration-300">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4">الخطة الاقتصادية</h3>
+                    <div style="direction:ltr;" class="flex items-center justify-center mb-4">
+                        <span  class="text-2xl font-bold text-blue-600">299 DH</span>
+                        <span class="text-sm text-gray-500 relative old-price ml-2">800 DH</span>
                     </div>
-                    <div style="background: rgba(255, 215, 0, 0.2); padding: 20px; border-radius: 15px; margin: 20px 0;">
-                        ✓ دعم فني مجاني  
-                    </div>
+                    <ul class="space-y-2 text-gray-600 mb-6">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> موقع إلكتروني كامل متجاوب</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> عرض 20 لوحة بالصور والأثمنة</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> زر شراء مباشر</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> دومين مجاني  لعام كامل (.app .art .store)</li>
+                    </ul><button 
+                    class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-bold transition duration-300" 
+                    onclick="sendToWhatsApp('الخطة الاقتصادية - 299DH')">
+                    اختر هذه الخطة
+                </button>
                 </div>
-                <button class="btn" onclick="nextStep()">عرض الخطط والأسعار 💰</button>
-            </div>
-        </div>
-    </div>
-                      
-    <!-- Step 5: عرض الخطط + النماذج -->
-    <div class="step" id="step5">
-        <div class="container">
-            <div class="header">
-                <h2 class="main-title">اختر الخطة المناسبة لك</h2>
-            </div>
-            
-            <div class="plans">
-                 <!-- الخطة الاقتصادية -->
-                    <div class="plan" style="border: 1px solid #ccc;">
-                        <h3>الخطة الاقتصادية</h3>
-                        <div style="direction:ltr;" class="price">299 DH <span style=" text-decoration: line-through;font-size: 20px;">800 DH</span></div>
-                        <ul>
-                            <li>موقع إلكتروني كامل متجاوب</li>
-                            <li>عرض 20 لوحة بالصور والأثمنة</li>
-                            <li>زر شراء مباشر </li>
-                            <li>دومين مجاني عادي لعام كامل  (.app .art .store)  </li>
-
-                        </ul>
-                        <button class="btn" onclick="selectPlan('الخطة الاقتصادية - 299DH')">اختر هذه الخطة</button>
+                <!-- الخطة الأساسية -->
+                <div class="plan-card bg-white rounded-lg shadow-md p-6 relative transition duration-300">
+                    <h3 class="text-xl font-bold text-center text-blue-800 mb-4">الخطة الأساسية</h3>
+                    <div  style="direction:ltr;" class="flex items-center justify-center mb-4">
+                        <span  class="text-2xl font-bold text-blue-600">499 DH</span>
+                        <span class="text-sm text-gray-500 relative old-price ml-2">1400 DH</span>
                     </div>
-
-                <div class="plan">
-                    <h3>الخطة الأساسية</h3>
-                    <div style="direction:ltr;" class="price">499 DH <span style=" text-decoration: line-through;font-size: 24px;">1400 DH</span></div>
-                    <ul>
-                        <li>موقع إلكتروني كامل متجاوب</li>
-                        <li>دومين مجاني احترافي لعام كامل (.com)</li>
-                        <li>SEO محسّن لمحركات البحث</li>
-                        <li>عرض لوحات بالصور والأثمنة</li>
-                        <li>زر شراء مباشر </li>
-                        <li>لوحة تحكم سهلة</li>
+                    <ul class="space-y-2 text-gray-600 mb-6">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> موقع إلكتروني كامل متجاوب</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> دومين مجاني احترافي لعام كامل (.com)</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> SEO محسّن لمحركات البحث</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> عرض لوحات بالصور والأثمنة</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> زر شراء مباشر</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> لوحة تحكم سهلة</li>
                     </ul>
-                    <button class="btn" onclick="selectPlan('الخطة الأساسية - 499DH')">اختر هذه الخطة</button>
+                    <button 
+    class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-bold transition duration-300" 
+    onclick="sendToWhatsApp('الخطة الأساسية - 499DH')">
+    اختر هذه الخطة
+</button>
                 </div>
-
-                <div class="plan" style="border-color: #ffd700; background: rgba(255, 215, 0, 0.15);">
-                    <h3>الخطة المتكاملة ⭐</h3>
-                    <div style="direction:ltr;" class="price">699 DH <span style=" text-decoration: line-through;font-size: 24px;">1800 DH</span></div>
-                    <ul>
-                        <li>جميع مزايا الخطة الأساسية</li>
-                        <li>خطة تسويقية  متكاملة تساعدك في الوصول للاشخاص المهتمين (نقاد فن - فنادق- مقاهي - المشترون عبر الانترنت ...)</li>
-                    </ul>
-                    <button class="btn" onclick="selectPlan('الخطة المتكاملة - 699')">اختر هذه الخطة ⭐</button>
+                
+                <!-- الخطة المتكاملة -->
+                <div class="plan-card bg-white rounded-lg shadow-md p-6 relative transition duration-300 border-2 border-yellow-400">
+                    <h3 class="text-xl text-center font-bold text-blue-800 mb-4">الخطة المتكاملة ⭐</h3>
+                    <div style="direction:ltr;" class="flex items-center justify-center mb-4">
+                        <span  class="text-2xl font-bold text-blue-600">699 DH</span>
+                        <span class="text-sm text-gray-500 relative old-price ml-2">1800 DH</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-600 mb-6">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> جميع مزايا الخطة الأساسية</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> خطة تسويقية متكاملة توصلك للمشترين (نقاد فن - فنادق - مقاهي - مشترون عبر الإنترنت...)</li>
+                    </ul><button 
+                    class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-bold transition duration-300" 
+                    onclick="sendToWhatsApp('الخطة المتكاملة - 699DH')">
+                    اختر هذه الخطة ⭐
+                </button>
                 </div>
             </div>
+        </div>
+        <div class="limited-offer mt-8">
+            ⏰ العرض محدود وسينتهي قريبًا! احجز الآن قبل فوات الأوان! ⏰
+        </div>
+        <!-- قسم شهادات العملاء -->
+    <section id="testimonials" class="py-12 px-6 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6 text-blue-800">ماذا يقول عملاؤنا</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <p class="text-gray-600 mb-4">"الموقع كان سهل الاستخدام وعرض لوحاتي بشكل احترافي!"</p>
+                    <p class="font-bold text-blue-800">ياسر، الدار البيضاء</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <p class="text-gray-600 mb-4">"زاد عدد زبنائي بفضل الموقع والتسويق الاحترافي!"</p>
+                    <p class="font-bold text-blue-800">ليلى، مراكش</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <p class="text-gray-600 mb-4">"خدمة العملاء ممتازة، ساعدوني في إعداد الموقع بسرعة."</p>
+                    <p class="font-bold text-blue-800">كريم، الرباط</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="header" style="margin-top: 80px;">
-                <h3 class="subtitle">نماذج التصاميم الفاخرة ✨</h3>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div>
-                            <img src="./dfsd.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div>
-                            <img src="./dfxc.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div>
-                            <img src="./dsfz.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div>
-                            <img src="./Sans titre-2sdfdsf.jpg" alt="">
-                        </div>
-                    </div>
-                    <p style="margin-top:20px; text-align:center; color:gold; font-weight:bold;">
-                        يمكنك الحصول على موقع أنيق ومصمم على ذوقك الخاص ✨
+    <!-- رابط واتساب -->
+    <div class="flex justify-center mb-4">
+        <a href="https://wa.me/212723984037" target="_blank"
+           class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">
+            <i class="fab fa-whatsapp text-xl"></i>
+            <span>تواصل معنا على واتساب</span>
+        </a>
+    </div>
+
+    <!-- قسم الضمان والدعم -->
+    <section class="py-16 px-6 bg-blue-600 text-white">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl mb-4"><i class="fas fa-rocket"></i></div>
+                    <h3 class="text-xl font-bold mb-2">إطلاق سريع</h3>
+                    <p>إطلاق موقعك خلال 2-5 أيام عمل</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="text-xl font-bold mb-2">ضمان الجودة</h3>
+                    <p>ضمان رضا العملاء مع دعم فني كامل</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl mb-4"><i class="fas fa-headset"></i></div>
+                    <h3 class="text-xl font-bold mb-2">دعم متواصل</h3>
+                    <p>فريق دعم متاح على مدار الساعة للإجابة عن استفساراتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    
+    <!-- تذييل الصفحة -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 ">لماذا نحن الأفضل؟ 🚀</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        لأننا نفهم شغفك بالفن! 🎨 نقدم لك موقعًا إلكترونيًا احترافيًا يعكس إبداعك، يجذب الزبائن من كل مكان، ويزيد مبيعاتك بسهولة. 💰 مع دعم فني متواصل، تصميم عصري، وخطط تسويقية تجعل لوحاتك محط أنظار العالم! ✨ انضم إلينا اليوم وابدأ رحلة نجاحك الفني! 🌟
                     </p>
                 </div>
+               
+                
             </div>
+        </div>
+    </footer>
 
-            <!-- <div class="header">
-                <h3 class="subtitle">شوف بعض النماذج قبل ما تختار ✨</h3>
-                <div class="portfolio-links">
-                    <a href="#" class="portfolio-link">تصفح النموذج 1</a>
-                    <a href="#" class="portfolio-link">تصفح النموذج 2</a>
-                    <a href="#" class="portfolio-link">تصفح النموذج 3</a>
-                    <a href="#" class="portfolio-link">تصفح النموذج 4</a>
-                </div>
-            </div> -->
-            <p class="highlight-text" style="text-align: center; color: #ffffff; font-weight: bold; font-size: 18px; margin-top: 10px;">
-                لماذا نحن الأفضل؟
-                لأننا نصمّم مواقع فنية فاخرة ✨ تعكس ذوقك الإبداعي بلمسة فريدة. نحن نفهم السوق و الفن ونترجمه لتجربة رقمية راقية تعكس شخصيتك. ومع دعم مستمر، تظل مواقعنا في صدارة الأفضل بالعالم العربي بجودة وابتكار لا مثيل لهما.      
-                  </p>
+
+    <!-- نافذة نجاح الاختيار -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 fade-in">
+            <div class="text-center">
+                <div class="text-green-500 text-6xl mb-4"><i class="fas fa-check-circle"></i></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">شكراً لك!</h2>
+                <p class="text-gray-600 mb-6">تم استلام اختيارك بنجاح وسنتصل بك خلال 24 ساعة لتأكيد التفاصيل</p>
+                <button id="closeModal" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg font-bold transition duration-300">
+                    حسناً
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
-        let currentStep = 1;
-        const totalSteps = 5;
-
-        function updateProgressBar() {
-            const progress = (currentStep / totalSteps) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-        }
-
-        function nextStep() {
-            if (currentStep < totalSteps) {
-                document.getElementById('step' + currentStep).classList.remove('active');
-                currentStep++;
-                document.getElementById('step' + currentStep).classList.add('active');
-                updateProgressBar();
-                window.scrollTo(0, 0);
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 1) {
-                document.getElementById('step' + currentStep).classList.remove('active');
-                currentStep--;
-                document.getElementById('step' + currentStep).classList.add('active');
-                updateProgressBar();
-                window.scrollTo(0, 0);
-            }
+        function sendToWhatsApp(plan) {
+    let phone = "212723984037"; // رقمك مع كود المغرب 212
+    let message = `السلام عليكم، بغيت نبدأ معاكم بـ ${plan}`;
+    let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+        function showStep(stepNumber) {
+            document.querySelectorAll('.step').forEach(step => step.classList.add('hidden'));
+            document.getElementById(`step${stepNumber}`).classList.remove('hidden');
+            document.getElementById(`step${stepNumber}`).classList.add('active');
         }
 
         function selectPlan(planName) {
-            const message = `السلام عليكم، بغيت نبدأ معاكم الخدمة بـ ${planName}`;
-            const whatsappUrl = `https://wa.me/212723984037?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            document.getElementById('successModal').classList.remove('hidden');
         }
 
-        // Initialize progress bar
-        updateProgressBar();
-
-        // Add some interactive effects
-        document.addEventListener('mousemove', function(e) {
-            const cursor = e.clientX / window.innerWidth;
-            const cursorY = e.clientY / window.innerHeight;
-            
-            document.querySelectorAll('.floating-element').forEach((element, index) => {
-                const speed = (index + 1) * 0.5;
-                element.style.transform = `translate(${cursor * speed}px, ${cursorY * speed}px)`;
-            });
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('successModal').classList.add('hidden');
         });
 
-        // Add scroll effects
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelectorAll('.floating-element');
-            
-            parallax.forEach(element => {
-                const speed = 0.5;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
+        // Countdown timer
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const endTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const timeLeft = endTime - now;
+                if (timeLeft <= 0) {
+                    countdownElement.textContent = 'انتهى العرض!';
+                    return;
+                }
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', startCountdown);
     </script>
 </body>
 </html>
