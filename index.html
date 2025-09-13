@@ -261,6 +261,22 @@
             font-weight: bold;
             margin-left: 10px;
         }
+        .plan[style*="border-color: #ffd700"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shine 2s infinite;
+}
+
+/* تأثير اللمعان */
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
 
         .gallery {
             display: flex;
