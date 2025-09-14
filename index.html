@@ -90,13 +90,20 @@
             padding: 15px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف */
-            animation: pulse 2s infinite; /* تأثير النبض */
+            animation: pulse 1s infinite; /* تأثير النبض */
         }
 /* إضافة تأثير النبض إذا لم يكن موجودًا بالفعل */
-@keyframes pudse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+@keyframes pulse {
+    0% { 
+        background: rgba(255, 208, 0, 0.9); /* خلفية حمراء مع شفافية */
+
+     }
+    50% { 
+        background: rgba(255, 217, 0, 0.63); /* خلفية حمراء مع شفافية */
+     }
+    100% { 
+        background: rgba(255, 208, 0, 0.9); /* خلفية حمراء مع شفافية */
+    }
 }
     </style>
 </head>
