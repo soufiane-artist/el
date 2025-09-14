@@ -92,9 +92,8 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف */
             animation: pulse 2s infinite; /* تأثير النبض */
         }
-
 /* إضافة تأثير النبض إذا لم يكن موجودًا بالفعل */
-@keyframes pulse {
+@keyframes pudse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
@@ -103,15 +102,11 @@
 </head>
 <body >
     <!-- شريط الاستعجال الثابت -->
-    
+    <div class="limited-offer mt-8">
+        ⏰ العرض محدود وسينتهي قريبًا! احجز الآن قبل فوات الأوان! ⏰
+    </div>
 
-    <!-- القسم الرئيسي -->
-    <!-- <header style="margin-top: 65px;" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-12 px-6">
-        <div class="container mx-auto text-center">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4 fade-in">موقع الفنانين التشكيليين 🖼️</h1>
-            <p class="text-lg md:text-xl text-gray-100 mb-8">حول فنك إلى تجربة رقمية مذهلة مع موقع احترافي يعرض لوحاتك ويجذب الزبائن! 🚀</p>
-        </div>
-    </header> -->
+   
         
     <!-- المرحلة الأولى -->
     <section class="step active py-12 px-6 bg-white" id="step1">
@@ -197,9 +192,7 @@
                 </div>
             </div>
         </div>
-        <div class="limited-offer mt-8">
-            ⏰ العرض محدود وسينتهي قريبًا! احجز الآن قبل فوات الأوان! ⏰
-        </div>
+       
         <!-- قسم شهادات العملاء -->
     <section id="testimonials" class="py-12 px-6 bg-gray-50">
         <div class="container mx-auto text-center">
